@@ -8,7 +8,7 @@ const port = 3000;
 //Settings
 app.set('appName', 'Express-server');
 app.set('views', __dirname + '/views');
-app.set('viewEngine', 'ejs');
+app.set('view engine', 'ejs');
 
 //Middlewares
 app.use(morgan('combined'));
@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/login', (req, res) => {
-  res.send("Login here!");
+  res.render("login.ejs");
 });
 
 app.get('*', (req, res) => {
