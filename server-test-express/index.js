@@ -1,5 +1,6 @@
 const express = require('express')
 const morgan = require('morgan')
+const routes = require('./routes');
 
 const app = express();
 
@@ -18,17 +19,8 @@ app.use( (req, res, next) => {
   next();
 });
 
-app.get('/', (req, res) => {
-  res.render('index.ejs');
-});
-
-app.get('/login', (req, res) => {
-  res.render("login.ejs");
-});
-
-app.get('*', (req, res) => {
-  res.send("Route not found");
-});
+//Routes
+app.use(routes);
 
 app.listen(port, () => {
   console.log(`Server running on Port: ${port}`)
