@@ -9,8 +9,4 @@ router.get('/login', (req, res) => {
   res.render("login.ejs");
 });
 
-router.get('*', (req, res) => {
-  res.send("Route not found");
-});
-
 module.exports = router;

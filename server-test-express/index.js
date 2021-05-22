@@ -1,6 +1,7 @@
 const express = require('express')
 const morgan = require('morgan')
 const routes = require('./routes');
+const routesApi = require('./routes-api');
 
 const app = express();
 
@@ -21,6 +22,11 @@ app.use( (req, res, next) => {
 
 //Routes
 app.use(routes);
+app.use('/api', routesApi);
+
+app.get('*', (req, res) => {
+  res.end("Route not found");
+});
 
 app.listen(port, () => {
   console.log(`Server running on Port: ${port}`)
